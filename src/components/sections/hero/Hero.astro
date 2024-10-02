@@ -8,14 +8,9 @@ import Title from "../../shared/Title.astro";
 import LazyImage from "../../shared/LazyImage.astro";
 
 const heroSection = {
-  headline1: "Powering",
-  headline2: "Tomorrow,",
-  headline3: "Sustainably",
-  headline4: "Today!",
-  subheading1: "Join us in the green energy revolution",
-  subheading2: "and be part of a sustainable future",
-  subheading3: "for generations to come.",
-  buttonText: "Get Powered Today!",
+  headline1: "Thank",
+  headline2: "You!",
+  subheading1: "A reminder has been sent to the patient to come back to the clinic.",
   backgroundImage: "hero-background-image.jpg",
 };
 
@@ -37,18 +32,11 @@ const { className = "" } = Astro.props;
           <GradiantText
             >{" " + heroSection.headline2}
             <br />
-            {" " + heroSection.headline3}
-          </GradiantText>{heroSection.headline4}
         </Title>
         <SubTitle className=" mt-10 leading-9 italic">
           {heroSection.subheading1}
           <br />
-          {heroSection.subheading2}<br />
-          {heroSection.subheading3}
         </SubTitle>
-        <div class="pt-10">
-          <CtaButton>{heroSection.buttonText}</CtaButton>
-        </div>
       </div>
       <div class="flex relative pt-10 md:p-0">
         <LazyImage
