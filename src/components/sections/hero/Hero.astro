@@ -55,3 +55,37 @@ const { className = "" } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  // Extract URL parameters
+  const params = new URLSearchParams(window.location.search);
+  
+  // Construct the Lambda URL with the parameters
+  const lambdaUrl = new URL("https://ky0iuuh936.execute-api.af-south-1.amazonaws.com/dev/airtable-form");
+  
+  // Append all the relevant parameters to the Lambda URL
+  lambdaUrl.searchParams.append("Name", params.get("Name"));
+  lambdaUrl.searchParams.append("Surname", params.get("Surname"));
+  lambdaUrl.searchParams.append("Phone_Number", params.get("Phone_Number"));
+  lambdaUrl.searchParams.append("TB_Status", params.get("TB_Status"));
+  lambdaUrl.searchParams.append("Language", params.get("Language"));
+  lambdaUrl.searchParams.append("Reminder_Time", params.get("Reminder_Time"));
+  lambdaUrl.searchParams.append("Medication_Starting_Date", params.get("Medication_Starting_Date"));
+  lambdaUrl.searchParams.append("reminderOptIn", params.get("reminderOptIn"));
+  lambdaUrl.searchParams.append("Pill_Reminders", params.get("Pill_Reminders"));
+  lambdaUrl.searchParams.append("Consent", params.get("Consent"));
+  lambdaUrl.searchParams.append("Passport", params.get("Passport"));
+  lambdaUrl.searchParams.append("SA_ID", params.get("SA_ID"));
+
+  // Send the request to the Lambda function
+  fetch(lambdaUrl.toString(), {
+    method: 'GET',
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+</script>
